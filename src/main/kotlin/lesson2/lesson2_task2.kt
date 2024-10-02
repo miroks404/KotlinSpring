@@ -1,7 +1,7 @@
 package org.example.lesson2
 
-fun main (){
-    val staff:Short = 50
+fun main() {
+    val staff: Short = 50
     val salaryStaff = 30000
 
     val trainee = 30
