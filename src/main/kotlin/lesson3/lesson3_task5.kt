@@ -2,13 +2,10 @@ package org.example.lesson3
 
 fun main() {
     val move = "D2-D4;0"
-    val whereLetter = move[WHERE_LETTER]
-    val whereNumber = move[WHERE_NUMBER].toString()
-    val fromLetter = move[FROM_LETTER]
-    val fromNumber = move[FROM_NUMBER].toString()
-    val moveNumber = move[MOVE_NUMBER]
-    val where = whereLetter + whereNumber
-    val from = fromLetter + fromNumber
+    val parse = move.split("-", ";")
+    val where = parse[WHERE]
+    val from = parse[FROM]
+    val moveNumber = parse[MOVE_NUMBER]
 
     println(
         """
@@ -19,8 +16,6 @@ fun main() {
     )
 }
 
-const val WHERE_LETTER = 0
-const val WHERE_NUMBER = 1
-const val FROM_LETTER = 3
-const val FROM_NUMBER = 4
-const val MOVE_NUMBER = 6
+const val WHERE = 0
+const val FROM = 1
+const val MOVE_NUMBER = 2
