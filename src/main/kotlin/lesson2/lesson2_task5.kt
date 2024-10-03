@@ -3,11 +3,14 @@ package org.example.lesson2
 import kotlin.math.pow
 
 fun main() {
-    var depositAmount = 70000.00
+    val depositAmount = 70000
     val percentPerYear = 0.167
     val durationOfDeposit = 20
 
-    depositAmount = depositAmount * (1 + percentPerYear).pow(durationOfDeposit)
+    val resultDepositAmount =
+        depositAmount.toDouble() * (NUMBER_FOR_COMPOUND_INTEREST + percentPerYear).pow(durationOfDeposit)
 
-    println("Ваш размер вклада через $durationOfDeposit лет будет: " + String.format("%.03f", depositAmount))
+    println("Ваш размер вклада через $durationOfDeposit лет будет: " + String.format("%.03f", resultDepositAmount))
 }
+
+const val NUMBER_FOR_COMPOUND_INTEREST = 1
