@@ -1,6 +1,7 @@
 package org.example.lesson2
 
 fun main() {
+
     val departureHour = 9
     val departureMinute = 39
     val minutesOnTheWay = 457
@@ -11,4 +12,5 @@ fun main() {
         minuteOfArrival -= 60
     }
     println("Время прибытия: $hourOfArrival:$minuteOfArrival")
+
 }
