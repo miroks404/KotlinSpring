@@ -6,7 +6,7 @@ fun main() {
     val airHumidityInPercentages = 20
     val season = "winter"
     val favorableConditions =
-        (isSunnyWeather == IS_FAVORABLE_SUNNY_WEATHER) && (isAwningOpen == IS_FAVORABLE_AWING_IS_OPEN) &&
+        (isSunnyWeather == IS_FAVORABLE_SUNNY_WEATHER) && (isAwningOpen == IS_FAVORABLE_AWING_OPEN) &&
                 (airHumidityInPercentages == FAVORABLE_AIR_HUMIDITY) && (season != UNFAVORABLE_SEASON)
 
     println("Благоприятные ли условия сейчас для роста бобовых? $favorableConditions")
@@ -14,5 +14,5 @@ fun main() {
 
 const val FAVORABLE_AIR_HUMIDITY = 20
 const val IS_FAVORABLE_SUNNY_WEATHER = true
-const val IS_FAVORABLE_AWING_IS_OPEN = true
+const val IS_FAVORABLE_AWING_OPEN = true
 const val UNFAVORABLE_SEASON = "winter"
