@@ -5,7 +5,7 @@ fun main() {
 
     print("Решите пример: $captcha = ")
 
-    val answer = readln()!!.toString()
+    val answer = readln() // как я понял это ненулевой приемник и ненулевой утверждение (!!) можно не писать
 
     if (answer == RIGHT_ANSWER) println("Добро пожаловать!")
     else println("Доступ запрещен.")
