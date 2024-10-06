@@ -9,7 +9,6 @@ import kotlin.system.exitProcess
 fun main() {
     print("Введите полную дату рождения (вводить через пробел (день месяц год)): ")
     try {
-
         val input = readln()
         val formatter = DateTimeFormatter.ofPattern("dd MM yyyy")
         val date = LocalDate.parse(input, formatter)
