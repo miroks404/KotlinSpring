@@ -6,14 +6,14 @@ fun main() {
     val back = true
     val abs = true
     val day = 5
-    val evenDay = day % EVEN_OR_ODD == 0
-    val oddDay = day % EVEN_OR_ODD == 1
+    val isEvenDay = day % EVEN_OR_ODD == 0
+
     println(
         """
-        Упражнения для рук: ${hands == oddDay}
-        Упражнения для ног: ${legs == evenDay}
-        Упражнения для спины: ${back == evenDay}
-        Упражнения для пресса: ${abs == oddDay}
+        Упражнения для рук: ${hands == !isEvenDay}
+        Упражнения для ног: ${legs == isEvenDay}
+        Упражнения для спины: ${back == isEvenDay}
+        Упражнения для пресса: ${abs == !isEvenDay}
     """.trimIndent()
     )
 }
