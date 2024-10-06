@@ -17,9 +17,9 @@ fun main() {
         var age = today.year - date.year
 
         if (today < dayOfBirthdayInThisYear) age -= 1
-
         if (age < ADULT) println("Не показывать экран со скрытым контентом")
         else println("Показать экран со скрытым контентом")
+
         exitProcess(0)
     } catch (e: Exception) {
         println("Неверно введена дата")
