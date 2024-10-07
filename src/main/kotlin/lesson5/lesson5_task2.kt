@@ -23,8 +23,6 @@ fun main() {
         exitProcess(0)
     } catch (e: Exception) {
         println("Неверно введена дата")
-    } finally {
-        return main()
     }
 }
 
