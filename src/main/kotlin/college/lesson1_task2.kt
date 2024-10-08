@@ -35,7 +35,7 @@ fun main() {
         var firstSide = 0.0
         var secondSide = 0.0
 
-        if (largestSide == a && largestSide == b && largestSide == c){ // Определяю оставшиеся стороны
+        if (largestSide == a && largestSide == b && largestSide == c) { // Определяю оставшиеся стороны
             println("Площадь остроугольного треугольника равна: ${"%.2f".format(area)}")
             System.exit(0)
         } else if (largestSide == a) {
@@ -48,7 +48,6 @@ fun main() {
             firstSide = a
             secondSide = b
         }
-
 
         if (largestSide.pow(2.0) == firstSide.pow(2.0) + secondSide.pow(2.0)) typeOfTriangle = "прямоугольного"
         else if (largestSide.pow(2.0) > firstSide.pow(2.0) + secondSide.pow(2.0))
