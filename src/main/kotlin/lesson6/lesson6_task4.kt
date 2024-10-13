@@ -1,10 +1,10 @@
 package org.example.lesson6
 
 fun main() {
-    val hiddenNumber = 7
+    val hiddenNumber = (1..9).random()
     var attempt = 0
     do {
-        print("Угадайте число (от 1 до 9): ")
+        print("Угадайте число $GUESSING_RANGE: ")
         val tryNumber = readln().toInt()
 
         if (hiddenNumber != tryNumber) {
@@ -21,3 +21,4 @@ fun main() {
 }
 
 const val NUMBER_OF_ATTEMPTS = 5
+const val GUESSING_RANGE = "(от 1 до 9)"
