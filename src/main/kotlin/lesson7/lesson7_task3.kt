@@ -4,11 +4,9 @@ fun main() {
     print("Введите число: ")
     val inputNumber = readln().toInt()
 
-    val range = FIRST_EVEN_NUMBER..inputNumber step 2
-
-    for(i in range) {
+    for(i in FIRST_RANGE_NUMBER..inputNumber step 2) {
         println(i)
     }
 }
 
-const val FIRST_EVEN_NUMBER = 2
+const val FIRST_RANGE_NUMBER = 0
