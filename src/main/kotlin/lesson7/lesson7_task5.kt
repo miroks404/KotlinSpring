@@ -10,9 +10,9 @@ fun main() {
     listOfPassword.add(allChars.random())
 
     print("Введите длину пароля (минимум 6 символов): ")
-    val passwordLenght = readln().toInt()
+    val passwordLength = readln().toInt()
 
-    for (i in 4..passwordLenght) {
+    for (i in 4..passwordLength) {
         listOfPassword.add(allChars.random())
     }
 
