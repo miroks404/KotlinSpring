@@ -5,8 +5,7 @@ fun main() {
 
     println(
         "Всего просмотров за неделю: ${
-            numberOfAds[0] + numberOfAds[1] + numberOfAds[2] + numberOfAds[3] +
-                    numberOfAds[4] + numberOfAds[5] + numberOfAds[6]
+            numberOfAds.sum()
         }"
     )
 }
