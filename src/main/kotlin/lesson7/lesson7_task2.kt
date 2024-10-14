@@ -1,10 +1,8 @@
 package org.example.lesson7
 
-import kotlin.random.Random
-
 fun main() {
     do {
-        val codeAuthorization = Random.nextInt(1000, 9999)
+        val codeAuthorization = (1000..9999).random()
 
         println("Ваш код авторизации: $codeAuthorization")
 
