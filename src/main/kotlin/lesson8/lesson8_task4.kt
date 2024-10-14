@@ -7,18 +7,20 @@ fun main() {
         println("Ингридиент №${arrayOfIngredients.indexOf(i) + 1}: $i")
     }
 
-    print("Какой ингредиент вы хотите заменить (писать номер ингрудиента)? ")
-    val replaceTheIngredient = readln().toInt()
+    print("Какой ингредиент вы хотите заменить? ")
+    val replaceTheIngredient = readln()
 
-    if (replaceTheIngredient >= arrayOfIngredients.size + 1 || replaceTheIngredient < 1) {
-        println("Такого ингредиента нет в списке!")
+    val indexReplaceTheIngredient = arrayOfIngredients.indexOf(replaceTheIngredient)
+
+    if (indexReplaceTheIngredient == -1) {
+        println("Такого ингредиента нет в списке")
         return
     }
 
     print("На что хотите заменить? ")
     val newIngredient = readln()
 
-    arrayOfIngredients[replaceTheIngredient - 1] = newIngredient
+    arrayOfIngredients[indexReplaceTheIngredient] = newIngredient
 
     println("Новый список ингредиентов")
     for (i in arrayOfIngredients) {
