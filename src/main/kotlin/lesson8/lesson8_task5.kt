@@ -6,7 +6,6 @@ fun main() {
     print("Сколько ингредиентов вы впишете? ")
     val sizeOfArray = readln().toInt()
 
-    var indexArray = 0
     for (i in 1..sizeOfArray) {
         arrayOfIngredients += ""
     }
@@ -15,12 +14,6 @@ fun main() {
         val ingredient = readln()
         arrayOfIngredients[i - 1] = ingredient
     }
-    for (i in arrayOfIngredients) {
-        indexArray++
-        if (indexArray == sizeOfArray) { // это сделано чтобы убрать последнюю ненужную ","
-            print(i)
-            break
-        }
-        print("$i, ")
-    }
+
+    println(arrayOfIngredients.joinToString(", "))
 }
