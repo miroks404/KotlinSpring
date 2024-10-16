@@ -10,12 +10,14 @@ fun main() {
 fun generationPassword(inputLongOfPassword: Int): String {
     val specialCharacters = listOf('!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ' ')
     val numbers = listOf('0', '1', '2', '3', '4', '5', '6', '7', '8', '9')
-    val allChars = specialCharacters + numbers
 
     val listOfPassword = mutableListOf<Char>()
-    for (i in 1..inputLongOfPassword) {
-        listOfPassword.add(allChars.random())
+    for (i in 1..inputLongOfPassword step 2) {
+        listOfPassword.add(numbers.random())
+        listOfPassword.add(specialCharacters.random())
     }
+
+    if (inputLongOfPassword % 2 != 0) listOfPassword.removeLast()
 
     val password = listOfPassword.joinToString("")
 
