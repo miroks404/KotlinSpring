@@ -1,7 +1,7 @@
 package org.example.lesson9
 
 fun main() {
-    val listOfIngredients: MutableList<String> = mutableListOf()
+    val listOfIngredients: MutableSet<String> = mutableSetOf()
 
     print("Напишите название первого ингрудиента: ")
     val firstIngredient = readln()
@@ -23,11 +23,7 @@ fun main() {
     val fiftyIngredient = readln()
     listOfIngredients.add(fiftyIngredient)
 
-    val distinctedListOfIngredients: List<String> = listOfIngredients.distinct()
+    val sortedListOfIngredients = listOfIngredients.sorted().joinToString(", ")
 
-    val sortedDistinctedListOfIngredients = distinctedListOfIngredients.sorted()
-
-    val stringListOfIngredients = sortedDistinctedListOfIngredients.joinToString(", ")
-
-    println(stringListOfIngredients.capitalize())
+    println(sortedListOfIngredients.replaceFirstChar { sortedListOfIngredients[0].uppercaseChar() })
 }
