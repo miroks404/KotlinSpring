@@ -7,10 +7,10 @@ fun main() {
     print("Введите пароль: ")
     val inputPassword = readln()
 
-    println(validationLoginAndPassword(inputLogin, inputPassword))
+    println(checkValidString(inputLogin, inputPassword))
 }
 
-fun validationLoginAndPassword(inputLogin: String, inputPassword: String): String = if
+fun checkValidString(inputLogin: String, inputPassword: String): String = if
         (inputLogin.length < MINIMUM_LENGTH || inputPassword.length < MINIMUM_LENGTH)
         { "Логин или пароль недостаточно длинные" } else "Добро пожаловать в систему!"
 
