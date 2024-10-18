@@ -19,7 +19,7 @@ fun main() {
         id = 2,
         login = "apostol",
         password = "66908",
-        email = "apostol@ya.ru"
+        email = "apostol@ya.ru",
     )
 
     println(user1.id)
