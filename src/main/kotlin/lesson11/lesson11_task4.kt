@@ -4,7 +4,7 @@ class DishCatergory(
     val listOfCategories: MutableList<String> = mutableListOf("Бургеры", "Десерты", "Пицца", "Рыба", "Супы", "Салаты"),
 )
 
-class Reciepts(
+class Reciept(
     val reciepts: MutableList<String>,
 )
 
