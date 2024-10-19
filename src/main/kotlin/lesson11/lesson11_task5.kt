@@ -3,24 +3,24 @@ package org.example.lesson11
 import java.util.UUID
 
 class Forum(
-    val listOfMembers: MutableMap<String, String> = mutableMapOf(),
+    val listOfMembers: MutableList<ForumMember> = mutableListOf(),
     val listOfMessages: MutableList<ForumMessage> = mutableListOf()
 ) {
     fun createNewUser(userName: String): ForumMember {
         val newUser = ForumMember(userName = userName)
-        listOfMembers[newUser.userId] = newUser.userName
+        listOfMembers.add(newUser)
         return newUser
     }
 
-    fun createNewMessage(userId: String, message: String): ForumMessage {
+    fun createNewMessage(userId: String, message: String) {
         val newMessage = ForumMessage(userId, message)
         listOfMessages.add(newMessage)
-        return newMessage
     }
 
     fun printThread() {
         for (message in listOfMessages) {
-            println("${listOfMembers[message.userId]}: ${message.message}")
+            val member = listOfMembers.find { it.userId == message.userId }
+            println("${member?.userName} : ${message.message}")
         }
     }
 }
@@ -48,4 +48,3 @@ fun main() {
 
     forum1.printThread()
 }
-//Использовал gpt, потому что у меня выводилсоь по одному последнему сообщению юзера(
