@@ -2,8 +2,8 @@ package org.example.lesson12
 
 class DayInformationOfWeather(_dayTemperature: Int, _nightTemperature: Int, _isPrecipitation: Boolean) {
 
-    var dayTemperature = _dayTemperature - 273
-    var nightTemperature = _nightTemperature - 273
+    var dayTemperature = _dayTemperature + KELVINS_TO_CELSIUS
+    var nightTemperature = _nightTemperature + KELVINS_TO_CELSIUS
     var isPrecipitation = _isPrecipitation
 
     fun printAllInformation() = println(
@@ -20,3 +20,5 @@ fun main() {
 
     day1.printAllInformation()
 }
+
+const val KELVINS_TO_CELSIUS = -273
