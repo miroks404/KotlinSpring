@@ -2,8 +2,8 @@ package org.example.lesson12
 
 class DayInformationOfWeather(_dayTemperature: Int, _nightTemperature: Int, _isPrecipitation: Boolean) {
 
-    var dayTemperature = _dayTemperature
-    var nightTemperature = _nightTemperature
+    var dayTemperature = _dayTemperature - 273
+    var nightTemperature = _nightTemperature - 273
     var isPrecipitation = _isPrecipitation
 
     fun printAllInformation() = println(
@@ -13,11 +13,6 @@ class DayInformationOfWeather(_dayTemperature: Int, _nightTemperature: Int, _isP
         Были ли осадки? ${if (isPrecipitation) "да" else "нет"}
     """.trimIndent()
     )
-
-    init {
-        dayTemperature -= 273
-        nightTemperature -= 273
-    }
 }
 
 fun main() {
