@@ -30,8 +30,8 @@ class Room(
     val name: String,
     var listOfMembers: MutableList<String>,
 ) {
-    fun addMember(newMember: String) {
-        listOfMembers.add(newMember)
+    fun addMember(member: Member) {
+        listOfMembers.add(member.nickname)
     }
 }
 
@@ -54,7 +54,7 @@ fun main() {
     )
 
     println("Добавляем участника в комнату")
-    room1.addMember(user2.nickname)
+    room1.addMember(user2)
 
     println()
 
