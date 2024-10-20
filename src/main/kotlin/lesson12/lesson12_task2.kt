@@ -1,7 +1,8 @@
 package org.example.lesson12
 
 class DataOfTemperatureAndPrecipitation(
-    val dayTemperature: String, val nightTemperature: String,
+    val dayTemperature: String,
+    val nightTemperature: String,
     val isPrecipitation: Boolean
 ) {
     fun printAllInformation() = println(
