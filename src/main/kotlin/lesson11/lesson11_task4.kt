@@ -1,11 +1,11 @@
 package org.example.lesson11
 
 class DishCatergory(
-    val listOfCategories: MutableList<String> = mutableListOf("Бургеры", "Десерты", "Пицца", "Рыба", "Супы", "Салаты"),
+    val listOfReciepts: MutableList<Reciept>,
 )
 
 class Reciept(
-    val reciepts: MutableList<String>,
+    val listOfIngredients: MutableList<Ingredients>,
 )
 
 class Ingredients(
