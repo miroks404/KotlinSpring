@@ -1,6 +1,6 @@
 package org.example.lesson12
 
-class TemperatureAndPrecipitationData() {
+class TemperatureAndPrecipitationData{
     var dayTemperature = "+16"
     var nightTemperature = "-2"
     var isPrecipitation = false
