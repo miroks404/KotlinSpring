@@ -17,14 +17,19 @@ fun main() {
         listOfMonthDays.add(newDay)
     }
 
-    val listOfDaysTemperatures: MutableList<Int> = mutableListOf()
+    val listOfDaysAndNightsTemperatures: MutableMap<Int, Int> = mutableMapOf()
     for (i in listOfMonthDays) {
-        listOfDaysTemperatures.add(i.dayTemperature)
+        listOfDaysAndNightsTemperatures.put(i.dayTemperature, i.nightTemperature)
+    }
+
+    val listOfDaysTemperatures: MutableList<Int> = mutableListOf()
+    for (i in listOfDaysAndNightsTemperatures) {
+        listOfDaysTemperatures.add(i.component1())
     }
 
     val listOfNightsTemperatures: MutableList<Int> = mutableListOf()
-    for (i in listOfMonthDays) {
-        listOfNightsTemperatures.add(i.nightTemperature)
+    for (i in listOfDaysAndNightsTemperatures) {
+        listOfNightsTemperatures.add(i.component2())
     }
 
     val listOfDaysWithPrecipitation: MutableList<Boolean> = mutableListOf()
