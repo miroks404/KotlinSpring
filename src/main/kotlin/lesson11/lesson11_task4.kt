@@ -1,14 +1,20 @@
 package org.example.lesson11
 
-class DishCatergory(
-    val listOfReciepts: MutableList<Reciept>,
+class DishCategory(
+    val imageUrl: String,
+    val header: String = "Категории",
+    val listOfReciepts: MutableList<Recipe>,
+    val listOfDescriptionsOfReciepts: MutableMap<Recipe, String>,
 )
 
-class Reciept(
-    val listOfIngredients: MutableList<Ingredients>,
+class Recipe(
+    val imageUrl: String,
+    val header: String,
+    val methodsOfCooking: MutableList<String>,
+    val listOfIngredients: MutableList<Ingredient>,
 )
 
-class Ingredients(
+class Ingredient(
     val ingredients: MutableList<String>,
     val quantity: MutableMap<String, String>,
 )
