@@ -5,18 +5,24 @@ open class Liner(
     val passengerCapacity: Int = 100,
     val carryingCapacity: Int = 40,
     val speed: Int = 70,
-    val typeOfLoading: String = "выдвигает горизонтальный трап со шкафута",
     val breakIce: Boolean = false,
 ) {
+
+    open fun getTypeOfLoading(): String {
+        return "-Тип погрузки: выдвигает горизонтальный трап со шкафута"
+    }
+
     fun printAllInformation() {
-        println("""
+        println(
+            """
             -Имя корабля: $name
             -Вместимость пассажиров: $passengerCapacity
             -Грузоподьемность: $carryingCapacity
             -Скорость: $speed
             -Возможность колоть лед: $breakIce
-            -Тип погрузки: $typeOfLoading
-        """.trimIndent())
+            ${getTypeOfLoading()}
+        """.trimIndent()
+        )
         println()
     }
 }
@@ -26,17 +32,23 @@ class Cargo(
     passengerCapacity: Int = 50,
     carryingCapacity: Int = 100,
     speed: Int = 50,
-    typeOfLoading: String = "корабль активирует погрузочный кран",
-) : Liner(name, passengerCapacity, carryingCapacity, speed, typeOfLoading)
+) : Liner(name, passengerCapacity, carryingCapacity, speed) {
+    override fun getTypeOfLoading(): String {
+        return "-Тип погрузки: корабль активирует погрузочный кран"
+    }
+}
 
 class IceBreaker(
     name: String,
     passengerCapacity: Int = 40,
     carryingCapacity: Int = 70,
     speed: Int = 30,
-    typeOfLoading: String = "открывает ворота со стороны кормы",
     breakIce: Boolean = true,
-) : Liner(name, passengerCapacity, carryingCapacity, speed, typeOfLoading, breakIce)
+) : Liner(name, passengerCapacity, carryingCapacity, speed, breakIce) {
+    override fun getTypeOfLoading(): String {
+        return "-Тип погрузки: открывает ворота со стороны кормы"
+    }
+}
 
 fun main() {
     val ship1 = Liner("Первый лайнер")
