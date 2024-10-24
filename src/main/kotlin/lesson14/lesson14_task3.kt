@@ -5,24 +5,18 @@ import java.lang.Math.pow
 abstract class Figure(
     val color: String,
 ) {
-    open fun getArea(): Double {
-        val result = 0.0
-        return result
-    }
+    abstract fun getArea(): Double
 
-    open fun getPerimeter(): Float {
-        val result = 0f
-        return result
-    }
+    abstract fun getPerimeter(): Float
 }
 
 class Circle(
     color: String,
     val radius: Double,
 ) : Figure(color) {
-    override fun getArea(): Double {
-        val result = PI * pow(radius, 2.0)
-        return result
+    override fun getArea(): Double = PI * pow(radius, 2.0)
+    override fun getPerimeter(): Float {
+        TODO("Not yet implemented")
     }
 }
 
@@ -31,9 +25,10 @@ class Rectangle(
     val width: Float,
     val length: Float,
 ) : Figure(color) {
-    override fun getPerimeter(): Float {
-        val result = 2 * (width + length)
-        return result
+    override fun getPerimeter(): Float = 2 * (width + length)
+
+    override fun getArea(): Double {
+        TODO("Not yet implemented")
     }
 }
 
@@ -53,11 +48,11 @@ fun main() {
     var sumPerimetersOfBlackRectangles = 0f
 
     for (i in listOfCircles) {
-        if (i.color == "Белый") sumAreasOfWhiteCircles += i.getArea()
+        if (i.color == WHITE_COLOR) sumAreasOfWhiteCircles += i.getArea()
     }
 
     for (i in listOfRectangles) {
-        if (i.color == "Черный") sumPerimetersOfBlackRectangles += i.getPerimeter()
+        if (i.color == BLACK_COLOR) sumPerimetersOfBlackRectangles += i.getPerimeter()
     }
 
     println("Сумма площадей всех белых фигур: $sumAreasOfWhiteCircles")
@@ -65,3 +60,5 @@ fun main() {
 }
 
 const val PI = 3.14f
+const val BLACK_COLOR = "Черный"
+const val WHITE_COLOR = "Белый"
