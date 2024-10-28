@@ -1,51 +1,40 @@
 package org.example.lesson15
 
-interface FlyMovingMethod{
+interface FlyMovingMethod {
     fun flyingMovement()
 }
 
-interface SwimMovingMethod{
+interface SwimMovingMethod {
     fun swimmingMovement()
 }
 
-abstract class Beings : FlyMovingMethod, SwimMovingMethod {
+abstract class Beings {
     abstract val nameOfBeing: String
 }
 
-class Carp (
+class Carp(
     override val nameOfBeing: String = "Карась",
-) : Beings() {
+) : Beings(), SwimMovingMethod {
     override fun swimmingMovement() {
         println("*плывет*")
-    }
-
-    override fun flyingMovement() {
-        TODO("Not yet implemented")
     }
 }
 
 class Gull(
     override val nameOfBeing: String = "Чайка",
-) : Beings() {
+) : Beings(), FlyMovingMethod {
     override fun flyingMovement() {
         println("*летит*")
-    }
-
-    override fun swimmingMovement() {
-        TODO("Not yet implemented")
     }
 }
 
 class Duck(
     override val nameOfBeing: String = "Утка"
-) : Beings() {
+) : Beings(), SwimMovingMethod {
     override fun swimmingMovement() {
         println("*плывет*")
     }
 
-    override fun flyingMovement() {
-        TODO("Not yet implemented")
-    }
 }
 
 fun main() {
