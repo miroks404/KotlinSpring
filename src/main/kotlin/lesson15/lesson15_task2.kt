@@ -1,45 +1,44 @@
 package org.example.lesson15
 
 interface Server {
-    fun serverInput(temperature: Temperature, precipitationAmount: PrecipitationAmount)
-    fun serverOutput()
+    fun toServerInput(weatherStationStats: WeatherStationStats)
+    fun toServerOutput()
 }
 
 class WeatherServer(
-    val listOfTemperature: MutableList<Temperature> = mutableListOf(),
-    val listOfPrecipitation: MutableList<PrecipitationAmount> = mutableListOf(),
+    val listOfTemperature: MutableList<String> = mutableListOf(),
+    val listOfPrecipitation: MutableList<String> = mutableListOf(),
 ) : Server {
-    override fun serverInput(temperature: Temperature, precipitationAmount: PrecipitationAmount) {
-        if (temperature != null) {
-            listOfTemperature.add(temperature)
+    override fun toServerInput(weatherStationStats: WeatherStationStats) {
+        if (weatherStationStats is Temperature) {
+            listOfTemperature.add(weatherStationStats.temperature)
         }
-        if (precipitationAmount != null) {
-            listOfPrecipitation.add(precipitationAmount)
+        if (weatherStationStats is PrecipitationAmount) {
+            listOfPrecipitation.add(weatherStationStats.precipitation)
         }
     }
 
-    override fun serverOutput() {
+    override fun toServerOutput() {
         for (i in listOfTemperature) {
-            println(i.temperature)
+            println(i)
         }
         for (i in listOfPrecipitation) {
-            println(i.precipitation)
+            println(i)
         }
     }
 }
 
-abstract class WeatherStationStats(
-    val temperature: String?,
-    val precipitation: String?,
-)
+abstract class WeatherStationStats
 
 class Temperature(
-    temperature: String,
-) : WeatherStationStats(temperature, precipitation = null)
+    val temperature: String,
+    val precipitation: String? = null,
+) : WeatherStationStats()
 
 class PrecipitationAmount(
-    precipitation: String,
-) : WeatherStationStats(temperature = null, precipitation)
+    val precipitation: String,
+    val temperature: String? = null,
+) : WeatherStationStats()
 
 fun main() {
     val weatherServer1 = WeatherServer()
@@ -47,7 +46,8 @@ fun main() {
     val temperature1 = Temperature("10")
     val precipitation1 = PrecipitationAmount("110")
 
-    weatherServer1.serverInput(temperature1, precipitation1)
+    weatherServer1.toServerInput(temperature1)
+    weatherServer1.toServerInput(precipitation1)
 
-    weatherServer1.serverOutput()
+    weatherServer1.toServerOutput()
 }
