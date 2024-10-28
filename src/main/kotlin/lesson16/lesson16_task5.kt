@@ -6,13 +6,13 @@ private class Player(
     private var impactStrength: Int,
     private var healingOption: Boolean = true,
 ) {
-    fun takingDamage(damagePower: Int) {
+    fun takeDamage(damagePower: Int) {
         healthPoint -= damagePower
         println("Игрок $name получил урон на $damagePower хп\nЕго здоровье составляет $healthPoint")
         if (healthPoint <= 0) die()
     }
 
-    fun healing(healingPower: Int) {
+    fun heal(healingPower: Int) {
         if (healingOption) {
             healthPoint += healingPower
             println("Игрок $name исцелился на $healingPower хп\nЕго здоровье составляет $healthPoint хп")
@@ -30,11 +30,11 @@ private class Player(
 fun main() {
     val player1 = Player("miroks404", 100, 10)
 
-    player1.takingDamage(60)
+    player1.takeDamage(60)
 
-    player1.healing(10)
+    player1.heal(10)
 
-    player1.takingDamage(60)
+    player1.takeDamage(60)
 
-    player1.healing(100)
+    player1.heal(100)
 }
