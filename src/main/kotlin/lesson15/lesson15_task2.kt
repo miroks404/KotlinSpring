@@ -32,12 +32,10 @@ abstract class WeatherStationStats
 
 class Temperature(
     val temperature: String,
-    val precipitation: String? = null,
 ) : WeatherStationStats()
 
 class PrecipitationAmount(
     val precipitation: String,
-    val temperature: String? = null,
 ) : WeatherStationStats()
 
 fun main() {
