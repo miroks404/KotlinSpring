@@ -10,9 +10,13 @@ interface CargoTransportation {
     fun cargoTransportation()
 }
 
+interface Movement {
+    fun move() { println("Проехали из точки A в точку B") }
+}
+
 class PassengerCar(
     val passengers: Int,
-) : PassengerTransportation {
+) : PassengerTransportation, Movement {
     override fun passengerTransportation() {
         if (passengers > MAX_PASSENGERS_IN_PASSENGER_CAR) {
             println("Пассажирский автомобиль не может перевозить более 3 пассажиров")
@@ -25,7 +29,7 @@ class PassengerCar(
 class Truck(
     val passengers: Int,
     val cargo: Int,
-) : PassengerTransportation, CargoTransportation {
+) : PassengerTransportation, CargoTransportation, Movement {
     override fun passengerTransportation() {
         if (passengers > MAX_PASSENGERS_IN_TRUCK) {
             println("Грузовой автомобиль не может перевозить более 1 пассажира")
@@ -50,10 +54,13 @@ fun main() {
 
     truck1.passengerTransportation()
     truck1.cargoTransportation()
+    truck1.move()
 
     car1.passengerTransportation()
+    car1.move()
 
     car2.passengerTransportation()
+    car2.move()
 }
 
 const val MAX_PASSENGERS_IN_PASSENGER_CAR = 3
