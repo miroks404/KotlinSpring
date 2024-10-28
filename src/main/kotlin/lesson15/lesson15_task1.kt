@@ -30,9 +30,13 @@ class Gull(
 
 class Duck(
     override val nameOfBeing: String = "Утка"
-) : Beings(), SwimMovingMethod {
+) : Beings(), SwimMovingMethod, FlyMovingMethod {
     override fun swimmingMovement() {
         println("*плывет*")
+    }
+
+    override fun flyingMovement() {
+        println("*летит*")
     }
 
 }
@@ -50,4 +54,6 @@ fun main() {
 
     print("Утка: ")
     being3.swimmingMovement()
+    print("Утка: ")
+    being3.flyingMovement()
 }
