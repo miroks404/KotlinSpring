@@ -4,7 +4,7 @@ interface SearchComponents{
     fun searchComponents()
 }
 
-class AllProducts(
+class Product(
     val listOfTools: MutableList<Tool> = mutableListOf(),
     val listOfComponents: MutableMap<Tool, Component> = mutableMapOf(),
 ) {
@@ -19,20 +19,20 @@ class AllProducts(
 
 open class Tool(
     val nameOfTool: String,
-)
+) : SearchComponents {
+    override fun searchComponents() {
+        println("Поиск компонентов к $nameOfTool...")
+    }
+}
 
 class Component(
     val nameOfComponent: String,
-) : SearchComponents {
-    override fun searchComponents() {
-        println("Поиск компонентов к $nameOfComponent...")
-    }
-}
+)
 
 
 
 fun main() {
-    val allProducts = AllProducts()
+    val allProducts = Product()
 
     val tool1 = Tool("Инструмент1")
     val tool2 = Tool("Интсрумент2")
@@ -50,5 +50,5 @@ fun main() {
     allProducts.addComponent(tool2, component1)
     allProducts.addComponent(tool3, component3)
 
-    component1.searchComponents()
+    tool1.searchComponents()
 }
