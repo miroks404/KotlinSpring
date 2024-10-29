@@ -1,6 +1,6 @@
 package org.example.lesson17
 
-class Ship(
+private class Ship(
     private val name: String,
     val averageSpeed: Int,
     val portOfResidence: String,
