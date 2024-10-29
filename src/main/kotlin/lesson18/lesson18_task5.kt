@@ -1,67 +1,61 @@
 package org.example.lesson18
 
-private abstract class Object{
-    abstract fun draw(xInt: Int, yInt: Int)
-    abstract fun draw(xFloat: Float, yFloat: Float)
+private abstract class Object {
+    abstract fun draw(): String
 }
 
-private class Circle(
-    xInt: Int,
-    xFloat: Float,
-    yInt: Int,
-    yFloat: Float
+private class CircleInt(
+    private val xInt: Int,
+    private val yInt: Int,
 ) : Object() {
-    override fun draw(xInt: Int, yInt: Int) {
-        TODO("Not yet implemented")
-    }
-
-    override fun draw(xFloat: Float, yFloat: Float) {
-        TODO("Not yet implemented")
-    }
+    override fun draw() = "Circle int"
 }
 
-private class Square(
-    xInt: Int,
-    xFloat: Float,
-    yInt: Int,
-    yFloat: Float
+private class CircleFloat(
+    private val xFloat: Float,
+    private val yFloat: Float,
 ) : Object() {
-    override fun draw(xInt: Int, yInt: Int) {
-        TODO("Not yet implemented")
-    }
-
-    override fun draw(xFloat: Float, yFloat: Float) {
-        TODO("Not yet implemented")
-    }
+    override fun draw() = "Circle float"
 }
 
-private class Dot(
-    xInt: Int,
-    xFloat: Float,
-    yInt: Int,
-    yFloat: Float
+private class SquareInt(
+    private val xInt: Int,
+    private val yInt: Int,
 ) : Object() {
-    override fun draw(xInt: Int, yInt: Int) {
-        TODO("Not yet implemented")
-    }
+    override fun draw() = "Square int"
+}
 
-    override fun draw(xFloat: Float, yFloat: Float) {
-        TODO("Not yet implemented")
-    }
+private class SquareFloat(
+    private val xFloat: Float,
+    private val yFloat: Float,
+) : Object() {
+    override fun draw() = "Square float"
+}
+
+private class DotInt(
+    private val xInt: Int,
+    private val yInt: Int,
+) : Object() {
+    override fun draw() = "Dot int"
+}
+
+private class DotFloat(
+    private val xFloat: Float,
+    private val yFloat: Float,
+) : Object() {
+    override fun draw() = "Dot float"
 }
 
 private class Screen(
     private val figure: Object,
 ) : Object() {
-    override fun draw(xInt: Int, yInt: Int) {
-
-    }
-    override fun draw(xFloat: Float, yFloat: Float) {
-
-    }
+    override fun draw(): String = figure.draw()
 }
 
 fun main() {
-    val screen1 = Screen(Dot(1,0f,2,0f))
+    val screen1 = Screen(DotInt(1,2))
+    println(screen1.draw())
 
+    val screen2 = Screen(SquareFloat(3f,5f))
+    println(screen2.draw())
 }
