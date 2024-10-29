@@ -67,9 +67,9 @@ private class Screen(
 }
 
 fun main() {
-    val screen1 = Screen(DotInt(1,2))
+    val screen1 = Screen(DotInt(1, 2))
     screen1.draw()
 
-    val screen2 = Screen(SquareFloat(3f,5f))
+    val screen2 = Screen(SquareFloat(3f, 5f))
     screen2.draw()
 }
