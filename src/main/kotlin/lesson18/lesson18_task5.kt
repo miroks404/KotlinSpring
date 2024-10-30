@@ -1,15 +1,17 @@
 package org.example.lesson18
 
 private abstract class Object {
-    abstract fun draw()
+    open fun draw(xInt: Int, yInt: Int) {}
+    open fun draw(xFloat: Float, yFloat: Float) {}
+
 }
 
 private class CircleInt(
     private val xInt: Int,
     private val yInt: Int,
 ) : Object() {
-    override fun draw() {
-        println(xInt)
+    override fun draw(xInt: Int, yInt: Int) {
+        TODO("Not yet implemented")
     }
 }
 
@@ -17,8 +19,8 @@ private class CircleFloat(
     private val xFloat: Float,
     private val yFloat: Float,
 ) : Object() {
-    override fun draw() {
-        println(xFloat)
+    override fun draw(xFloat: Float, yFloat: Float) {
+        TODO()
     }
 }
 
@@ -26,8 +28,8 @@ private class SquareInt(
     private val xInt: Int,
     private val yInt: Int,
 ) : Object() {
-    override fun draw() {
-        println(xInt)
+    override fun draw(xInt: Int, yInt: Int) {
+        TODO("Not yet implemented")
     }
 }
 
@@ -35,8 +37,8 @@ private class SquareFloat(
     private val xFloat: Float,
     private val yFloat: Float,
 ) : Object() {
-    override fun draw() {
-        println(xFloat)
+    override fun draw(xFloat: Float, yFloat: Float) {
+        TODO()
     }
 }
 
@@ -44,8 +46,8 @@ private class DotInt(
     private val xInt: Int,
     private val yInt: Int,
 ) : Object() {
-    override fun draw() {
-        println(xInt)
+    override fun draw(xInt: Int, yInt: Int) {
+        TODO("Not yet implemented")
     }
 }
 
@@ -53,23 +55,23 @@ private class DotFloat(
     private val xFloat: Float,
     private val yFloat: Float,
 ) : Object() {
-    override fun draw() {
-        println(xFloat)
+    override fun draw(xFloat: Float, yFloat: Float) {
+        TODO()
     }
 }
 
 private class Screen(
     private val figure: Object,
 ) : Object() {
-    override fun draw() {
-        figure.draw()
+    override fun draw(xInt: Int, yInt: Int) {
+        TODO()
+    }
+
+    override fun draw(xFloat: Float, yFloat: Float) {
+        TODO()
     }
 }
 
 fun main() {
-    val screen1 = Screen(DotInt(1, 2))
-    screen1.draw()
 
-    val screen2 = Screen(SquareFloat(3f, 5f))
-    screen2.draw()
 }
