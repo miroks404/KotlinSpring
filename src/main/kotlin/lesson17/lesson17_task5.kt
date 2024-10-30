@@ -11,13 +11,7 @@ private class User(
         }
 
     var password = password
-        get() {
-            var protectedPassword = ""
-            for (i in field) {
-                protectedPassword += "*"
-            }
-            return protectedPassword
-        }
+        get() = "*".repeat(field.length)
         set(value) {
             println("Вы не можете поменять пароль!")
         }
