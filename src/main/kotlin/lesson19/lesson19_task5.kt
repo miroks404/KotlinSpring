@@ -1,0 +1,55 @@
+package org.example.lesson19
+
+private enum class Gender(val id: String){
+    WOMAN("жен"),
+    MAN("муж"),
+}
+
+private open class CardIndex(
+    private val listOfUsers: MutableList<User> = mutableListOf()
+) {
+    private fun addUserToList(user: User) {
+        listOfUsers.add(user)
+    }
+
+    fun createNewUser(name: String, gender: String) {
+        val newUser = User(name, gender)
+        addUserToList(newUser)
+        if (listOfUsers.size == 5) {
+            listOfUsers.forEach { user ->
+                println("""
+                    -Имя: ${user.name}
+                    -Пол: ${getGender(user.gender)}
+                """.trimIndent())
+                println()
+            }
+        }
+    }
+}
+
+
+private class User(
+    val name: String,
+    val gender: String,
+)
+
+fun main() {
+    val cardIndex1 = CardIndex()
+    for (i in 1..5) {
+        print("Введите имя (на русском): ")
+        val inputName = readln()
+        print("Введите пол (муж или жен): ")
+        val inputGender = readln()
+        cardIndex1.createNewUser(inputName, inputGender)
+    }
+
+}
+
+fun getGender(id: String) : String {
+    val gender = when (id) {
+        Gender.WOMAN.id -> return "женский"
+        Gender.MAN.id -> return "мужской"
+        else -> "неизвестный пол"
+    }
+    return gender
+}
