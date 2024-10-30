@@ -1,26 +1,41 @@
 package org.example.lesson18
 
 private abstract class Dice {
-    open fun getDice() {}
+
+    abstract val numberOfFaces: Int
+
+    open fun printDice() {}
 }
 
 private class Dice4 : Dice() {
-    override fun getDice() {
-        val droppedNumber = (1..4).random()
+
+    override val numberOfFaces: Int
+        get() = 4
+
+    override fun printDice() {
+        val droppedNumber = (1..numberOfFaces).random()
         println(droppedNumber)
     }
 }
 
 private class Dice6 : Dice() {
-    override fun getDice() {
-        val droppedNumber = (1..6).random()
+
+    override val numberOfFaces: Int
+        get() = 6
+
+    override fun printDice() {
+        val droppedNumber = (1..numberOfFaces).random()
         println(droppedNumber)
     }
 }
 
 private class Dice8 : Dice() {
-    override fun getDice() {
-        val droppedNumber = (1..8).random()
+
+    override val numberOfFaces: Int
+        get() = 8
+
+    override fun printDice() {
+        val droppedNumber = (1..numberOfFaces).random()
         println(droppedNumber)
     }
 }
@@ -33,6 +48,6 @@ fun main() {
     val arrayOfDices: Array<Dice> = arrayOf(dice1, dice2, dice3)
 
     arrayOfDices.forEach {
-        it.getDice()
+        it.printDice()
     }
 }
