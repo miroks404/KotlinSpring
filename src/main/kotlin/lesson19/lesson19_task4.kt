@@ -1,6 +1,6 @@
 package org.example.lesson19
 
-private enum class AmmunitionType{
+private enum class AmmunitionType {
     BLUE,
     GREEN,
     RED,
