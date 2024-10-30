@@ -1,7 +1,8 @@
 package org.example.lesson18
 
 private abstract class Animals {
-    open fun getEat() = ""
+    abstract fun getEat() : String
+    open fun sleep() {}
 }
 
 private class Fox(
