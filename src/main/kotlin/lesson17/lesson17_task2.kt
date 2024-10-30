@@ -8,7 +8,6 @@ private class Ship(
     var nameOfShip = name
         get() = "Название корабля: $field"
         set(value) {
-            field = name
             println("Название корабля нельзя поменять!")
         }
 }
