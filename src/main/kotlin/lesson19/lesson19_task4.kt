@@ -10,7 +10,7 @@ private enum class AmmunitionType {
 private class Tank(
     private var ammunition: AmmunitionType = AmmunitionType.NOTHING
 ) {
-    fun getNewAmmunition(ammunition: AmmunitionType) {
+    fun setNewAmmunition(ammunition: AmmunitionType) {
         this.ammunition = ammunition
     }
 
@@ -28,8 +28,8 @@ fun main() {
     val tank1 = Tank()
     val tank2 = Tank()
 
-    tank1.getNewAmmunition(AmmunitionType.BLUE)
-    tank2.getNewAmmunition(AmmunitionType.RED)
+    tank1.setNewAmmunition(AmmunitionType.BLUE)
+    tank2.setNewAmmunition(AmmunitionType.RED)
 
     tank1.shot()
     tank2.shot()
