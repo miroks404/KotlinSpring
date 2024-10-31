@@ -1,8 +1,9 @@
 package org.example.lesson19
 
-private enum class Gender(val id: String){
+enum class Gender(val id: String){
     WOMAN("жен"),
     MAN("муж"),
+    NOTHING(""),
 }
 
 private open class CardIndex(
@@ -12,7 +13,7 @@ private open class CardIndex(
         listOfUsers.add(user)
     }
 
-    fun createNewUser(name: String, gender: String) {
+    fun createNewUser(name: String, gender: Gender) {
         val newUser = User(name, gender)
         addUserToList(newUser)
         if (listOfUsers.size == 5) {
@@ -30,7 +31,7 @@ private open class CardIndex(
 
 private class User(
     val name: String,
-    val gender: String,
+    val gender: Gender,
 )
 
 fun main() {
@@ -40,16 +41,21 @@ fun main() {
         val inputName = readln()
         print("Введите пол (муж или жен): ")
         val inputGender = readln()
-        cardIndex1.createNewUser(inputName, inputGender)
+        val getGender = when (inputGender) {
+            Gender.MAN.id -> Gender.MAN
+            Gender.WOMAN.id -> Gender.WOMAN
+            else -> Gender.NOTHING
+        }
+        cardIndex1.createNewUser(inputName, getGender)
     }
 
 }
 
-fun getGender(id: String) : String {
+fun getGender(id: Gender) : String {
     val gender = when (id) {
-        Gender.WOMAN.id -> return "женский"
-        Gender.MAN.id -> return "мужской"
-        else -> "неизвестный пол"
+        Gender.WOMAN -> return "женский"
+        Gender.MAN -> return "мужской"
+        Gender.NOTHING -> "неизвестный пол"
     }
     return gender
 }
