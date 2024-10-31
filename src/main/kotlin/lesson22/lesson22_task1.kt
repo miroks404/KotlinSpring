@@ -5,7 +5,7 @@ private class RegularBook(
     val author: String,
 )
 
-data class DataBook(
+private data class DataBook(
     val name: String,
     val author: String,
 )
