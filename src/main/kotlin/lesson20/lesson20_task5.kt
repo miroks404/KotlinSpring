@@ -29,7 +29,9 @@ fun main() {
 
     robot.say()
 
-    robot.setModifier { phrase: String -> "$phrase!" }
+    robot.setModifier(modifier)
 
     robot.say(robot.phrase)
 }
+
+val modifier: (String) -> String = { modifier: String -> "$modifier!" }
