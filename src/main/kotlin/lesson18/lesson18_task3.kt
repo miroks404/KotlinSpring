@@ -1,25 +1,29 @@
 package org.example.lesson18
 
-private abstract class Animals {
+private abstract class Animals (
+    protected val name: String,
+) {
     abstract fun getEat() : String
-    open fun sleep() {}
+    fun sleep() {
+        println("$name спит...")
+    }
 }
 
 private class Fox(
-    private val name: String,
-) : Animals() {
+    name: String,
+) : Animals(name) {
     override fun getEat(): String = "$name -> ест ягоды"
 }
 
 private class Dog(
-    private val name: String,
-) : Animals() {
+    name: String,
+) : Animals(name) {
     override fun getEat(): String = "$name -> грызет кость"
 }
 
 private class Cat(
-    private val name: String,
-) : Animals() {
+    name: String,
+) : Animals(name) {
     override fun getEat(): String = "$name -> ест рыбу"
 }
 
@@ -33,4 +37,6 @@ fun main() {
     for (i in listOfAnimals) {
         println(i.getEat())
     }
+
+    animal1.sleep()
 }
