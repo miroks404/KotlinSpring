@@ -4,7 +4,7 @@ private abstract class Dice {
 
     abstract val numberOfFaces: Int
 
-    open fun printDice() {
+    fun printDice() {
         val droppedNumber = (1..numberOfFaces).random()
         println(droppedNumber)
     }
@@ -15,9 +15,6 @@ private class Dice4 : Dice() {
     override val numberOfFaces: Int
         get() = 4
 
-    override fun printDice() {
-        super.printDice()
-    }
 }
 
 private class Dice6 : Dice() {
@@ -25,19 +22,13 @@ private class Dice6 : Dice() {
     override val numberOfFaces: Int
         get() = 6
 
-    override fun printDice() {
-        super.printDice()
-    }
 }
 
 private class Dice8 : Dice() {
 
     override val numberOfFaces: Int
         get() = 8
-
-    override fun printDice() {
-        super.printDice()
-    }
+    
 }
 
 fun main() {
