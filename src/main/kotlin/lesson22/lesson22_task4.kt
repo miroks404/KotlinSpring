@@ -9,20 +9,21 @@ private class MainScreenViewModel {
 
         val newData3 = MainScreenState("наличие загруженных данных")
     }
+
+    data class MainScreenState(
+        var data: String = "",
+        val isLoading: Boolean = false,
+    ) {
+        fun changeLoading(isLoading: Boolean) {
+            val newMainScreenState = this.copy(isLoading = isLoading)
+        }
+    }
 }
 
 private data class ViewModel(
-    val mainScreenState: MainScreenState,
+    val mainScreenState: MainScreenViewModel.MainScreenState,
 )
 
 
-private data class MainScreenState(
-    var data: String = "",
-    val isLoading: Boolean = false,
-) {
-    fun changeLoading(isLoading: Boolean) {
-        val newMainScreenState = this.copy(isLoading = isLoading)
-    }
-}
 
 
