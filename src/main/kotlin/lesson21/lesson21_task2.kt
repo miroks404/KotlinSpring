@@ -7,11 +7,7 @@ fun main() {
 }
 
 fun List<Int>.evenNumbersSum() : Int {
-    var evenNumbersSum = 0
-    for (i in this) {
-        if (i % 2 == 0) {
-            evenNumbersSum += i
-        }
-    }
+    val listOfEvenNumbers = this.filter { it % 2 == 0 }
+    val evenNumbersSum = listOfEvenNumbers.sum()
     return evenNumbersSum
 }
