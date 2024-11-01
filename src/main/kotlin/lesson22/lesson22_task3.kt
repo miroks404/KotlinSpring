@@ -9,9 +9,7 @@ private data class User(
 fun main() {
     val user = User("miroks404", "miroks", "12345")
 
-    val userUsername = user.username
-    val userLogin = user.login
-    val userPassword = user.password
+    val (userUsername, userLogin, userPassword) = user
 
     println(userUsername)
     println(userLogin)
